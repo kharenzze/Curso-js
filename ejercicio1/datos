@@ -1,0 +1,9 @@
+{ 'piloto' : 'Alonso' , 'vuelta' : 2 , 'sector1' : 41.00 , 'sector2' : 35.34 , sector3 : 49.60 }
+{ 'piloto' : 'Hamilton' , 'vuelta' : 1 , 'sector1' : 42.70 , 'sector2' : 33.27 , sector3 : 49.01 }
+{ 'piloto' : 'Hamilton' , 'vuelta' : 2 , 'sector1' : 42.12 , 'sector2' : 34.37 , sector3 : 50.10 }
+{ 'piloto' : 'Hamilton' , 'vuelta' : 3 , 'sector1' : 43.62 , 'sector2' : 35.83 , sector3 : 49.32 }
+{ 'piloto' : 'Alonso' , 'vuelta' : 3 , 'sector1' : 42.91 , 'sector2' : 34.37 , sector3 : 47.84 }
+{ 'piloto' : 'Alonso' , 'vuelta' : 1 , 'sector1' : 42.62 , 'sector2' : 34.27 , sector3 : 48.00 }
+{ 'piloto' : 'Massa' , 'vuelta' : 1 , 'sector1' : 42.30 , 'sector2' : 35.27 , sector3 : 49.31 }
+{ 'piloto' : 'Massa' , 'vuelta' : 2 , 'sector1' : 42.32 , 'sector2' : 35.37 , sector3 : 50.30 }
+{ 'piloto' : 'Massa' , 'vuelta' : 3 , 'sector1' : 43.32 , 'sector2' : 35.83 , sector3 : 49.32 }
