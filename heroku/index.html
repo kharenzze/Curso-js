@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<title>Adivina el numero</title>
+</head>
+
+<body>
+<h1>Adivina el numero</h1>
+<p>Entre 0 y 100. Para jugar de nuevo, actualizar la pagina</p>
+
+<input type="text" id="entrada" />	
+<input type="button" value="Comprobar" id="Comprobar">
+<p> </p>
+
+<script type='text/javascript'>
+
+var sol = Math.floor(Math.random()*100);//generamos un numero aleatorio entre 0 y 100
+
+/***********************************************************************************
+	Esta funcion se encarga de comprobar si el numero introducido es el correcto,
+	da pistas sobre la solucuon final y escribe un historial de valores introducidos.
+	Tiene una entrada 'e' que se utiliza para saber que tecla se ha pulsado para
+	ejecutar la funcion.
+************************************************************************************/
+function comprobar_numero(e){
+	if(e.which==13 || e.which==1){			//comprobamos si la tecla pulsada es Enter o un click del ratón,
+											//para que no se ejecute la funcion cuando se pulsa cualquier tecla.
+		var a = $("#entrada").val();		
+		$("#ultimo_valor").html(a);
+		if(a>=0 && a<=100){					//comprobamos si la entrada esta dentro del rango 0-100
+			if(a==sol) $("#texto").html("¡¡¡¡Lo has acertado!!!!");
+			else if(a<sol) $("#texto").html("El numero que buscas es mayor");
+			else $("#texto").html("El numero que buscas es menor");
+			var anterior=$("#historial").html();			//guardamos lo que habia en el historial antes en una variable
+			$("#historial").html(anterior +" " + a+" ");	//ahora, escribimos lo que habia nates y le añadimos el nuevo valor introducido
+		}
+		else $("#texto").html("El numero introducido no esta entre 0 y 100");
+		$("#entrada").val('');		//con esta orden, limpiamos el cuadro de entrada
+	}
+};
+
+/************************************************************************************
+	Ajustamos los eventos
+*************************************************************************************/
+$("#Comprobar").click(comprobar_numero);		//llamamos a la funcion si hacemos click en el boton
+$("#entrada").keypress(comprobar_numero);		//llamamos a la funcion si pulsamos una tecla (se filtra la tecla pulsada en la funcion)
+
+</script>
+
+<div id='ultimo_valor' style='border:dashed'></div>
+<h2 id="texto"></h2>
+<div id='historial'>Historial:</div><br><br><br>
+<div>Realizado por Pablo Ráez Sánchez</div>
