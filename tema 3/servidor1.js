@@ -1,4 +1,4 @@
-fs = require('fs');
+fs = require('fs');	//objeto de lectura
 var documento;
 fs.readFile('index.html', 'utf8', 
 	    function(err,datos) {
