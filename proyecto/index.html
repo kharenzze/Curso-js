@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<title>Trivial</title>
+</head>
+
+<body>
+<h1>Bienvenido</h1>
+<p>Beta</p>
+
+<input type="button" value="Nuevo Usuario" id="Nuevo_Usuario">
+<input type="button" value="Ingresar" id="Ingresar">
+<p> </p>
+
+<script type='text/javascript'>
+
+
+$("#Nuevo_Usuario").click(function(){
+	$.get('/new',function(data){
+		document.write(data);
+	});
+});		//llamamos a la funcion si hacemos click en el boton
+$("#Ingresar").click(function(){
+	document.write('data');
+});		//llamamos a la funcion si pulsamos una tecla (se filtra la tecla pulsada en la funcion)
+
+
+</script>
+
+</body> 
+</html>

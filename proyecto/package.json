@@ -1,0 +1,15 @@
+{
+  "name": "proyecto",
+  "version": "0.0.0",
+  "description": "prueba",
+  "main": "servidor.js",
+  "dependencies": {
+    "express": "3.1.x"
+  },
+  "author": "Paolo",
+  "license": "BSD",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}
