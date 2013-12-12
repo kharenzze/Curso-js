@@ -16,7 +16,6 @@
 
 <script type='text/javascript'>
 
-var usuario='a';
 $("#Nuevo_Usuario").click(function(){
 	$.get('/new',function(data){
 		document.close();
@@ -24,7 +23,10 @@ $("#Nuevo_Usuario").click(function(){
 	});
 });		//llamamos a la funcion si hacemos click en el boton
 $("#Ingresar").click(function(){
-	document.write('data');
+	$.get('/entrar',function(data){
+		document.close();
+		document.write(data);
+	});
 });		//llamamos a la funcion si pulsamos una tecla (se filtra la tecla pulsada en la funcion)
 
 
