@@ -7,6 +7,11 @@ function leer(pagina){
 	return fs.readFileSync(pagina,'utf-8');
 }
 
+function crear_ranking(){
+	
+	
+}
+
 app.get('/', function (req, res) {   
 	res.send(leer('index.html'));
 });
@@ -20,6 +25,14 @@ app.get('/new', function (req, res) {
 });
 
 app.get('/zona', function (req, res) {   
+	res.send(leer('PaginaUsuario.html'));
+});
+
+app.get('/jugar/:id/:id2', function (req, res) {   
+	res.send(leer('PaginaUsuario.html'));
+});
+
+app.get('/ranking', function (req, res) {   
 	res.send(leer('PaginaUsuario.html'));
 });
 
