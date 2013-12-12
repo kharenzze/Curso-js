@@ -7,9 +7,24 @@ function leer(pagina){
 	return fs.readFileSync(pagina,'utf-8');
 }
 
-function crear_ranking(){
-	
-	
+function dar_posiciones(){
+	var copia_registro=registro;
+	for (i=0;i<copia_registro.length;i++){
+		contador=0;
+		for j in copia_registro{
+			if (contador=0){
+				mayor=j;
+			}
+			if(copia_registro[j].puntos>copia_registro[mayor].puntos){
+				mayor=j;
+			}
+			contador++;
+		}
+		registro[mayor].pos=i;
+		copia_registro.splice(mayor);
+	}
+	console.log(registro);
+	 
 }
 
 app.get('/', function (req, res) {   
@@ -33,6 +48,7 @@ app.get('/jugar/:id/:id2', function (req, res) {
 });
 
 app.get('/ranking', function (req, res) {   
+	dar_posiciones();
 	res.send(leer('PaginaUsuario.html'));
 });
 
@@ -40,7 +56,7 @@ app.put('/log/:id/:id2', function (req, res) {
 	usuario=req.params.id;
 	pass=req.params.id2;
 	if (registro[usuario]==undefined){	
-		registro[usuario]={'password': pass, 'puntos':0};
+		registro[usuario]={'password': pass, 'puntos':Math.random(), 'pos':0};
 		console.log('Nuevo usuario añadido\n'+req.params.id);
 		res.send('1');
 		console.log(registro);
