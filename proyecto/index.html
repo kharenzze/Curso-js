@@ -4,8 +4,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>Trivial</title>
 </head>
-
 <body>
+
 <h1>Bienvenido</h1>
 <p>Beta</p>
 
@@ -13,11 +13,13 @@
 <input type="button" value="Ingresar" id="Ingresar">
 <p> </p>
 
+
 <script type='text/javascript'>
 
-
+var usuario='a';
 $("#Nuevo_Usuario").click(function(){
 	$.get('/new',function(data){
+		document.close();
 		document.write(data);
 	});
 });		//llamamos a la funcion si hacemos click en el boton

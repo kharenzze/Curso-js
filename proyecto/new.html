@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<h1>Bienvenido</h1>
+<h1>Nuevo usuario</h1>
 <p>Beta</p>
 <input type="text" value="Usuario" id="Usuario" required />
 <input type="password" value="Pass" id="Pass" required />
@@ -23,7 +23,7 @@ $("#Enviar").click(function(){
 	pass=$('#Pass').val();
 	$.post('log/'+user+'/'+pass,function(data){
 		if (data=="1"){
-			$('#Resultado').html('Correcto');
+			$('#Resultado').html('Correcto. Redirigiendo');
 			setTimeout(function(){
 				document.close();//cortamos la espera de nuevos eventos
 				$.get('/',function(data2){
