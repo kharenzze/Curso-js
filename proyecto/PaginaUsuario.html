@@ -26,7 +26,17 @@ $.get('/ranking/'+user,function(data){
 
 $('#bienvenida').html('Bienvenido '+user);
 
+$("#Ranking").click(function(){
+	$.get('/ranking',function(data){
+		document.close();
+		document.write(data);
+});
 
+$("#Jugar").click(function(){
+	$.get('/jugar/'+user+pass,function(data){
+		document.close();
+		document.write(data);
+});
 
 </script>
 
