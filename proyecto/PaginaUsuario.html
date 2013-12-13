@@ -34,7 +34,7 @@ $("#Ranking").click(function(){
 });
 
 $("#Jugar").click(function(){
-	$.get('/jugar/'+user+'/'+pass,function(data){
+	$.get('/jugar/',function(data){
 		document.close();
 		document.write(data);
 	});

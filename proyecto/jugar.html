@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<title>Trivial</title>
+</head>
+
+<body>
+
+<h1>Suerte</h1>
+<p id='pregunta' ></p>
+<input type="button" value="A" id="A"/>
+<input type="button" value="B" id="B"/>
+<input type="button" value="C" id="C"/>
+<input type="button" value="D" id="D"/><br>
+<progress value="0" max="100" id="proceso" ></progress>
+
+<p> </p>
+
+<script type='text/javascript'>
+
+//esta funcion se encarga de controlar el tiempo que se muestra la pregunta
+var id_pregunta;
+var algo;
+function tiempo(){
+	var i=0
+	$('#proceso').val(i);
+	temporizador=setInterval(function(){
+		i+=5;
+		$('#proceso').val(i);//mostramos el tiempo con una barra de proceso
+
+		if (i==100){		//cuando pasan 5 segundos, se manda al servidor que se ha sobrepasado el tiempo
+			$.post('/comprobacion/'+user+'/'+id_pregunta+'/timeout',function(data){
+				clearInterval(temporizador);
+				document.close();
+				document.write(data);
+			});
+		}
+	},600);
+}
+
+//se pide una pregunta al servidor, y se activa el contador de tiempo (5s)
+$.get('/pregunta/',function(data){
+	eval("var respuesta="+data);
+	$('#pregunta').html(respuesta.texto);
+	id_pregunta=respuesta.id_pregunta;
+	tiempo();
+});
+
+//BOTONES
+//segun el boton pulsado, se mandara una orden de comprobacion al servidor
+
+$("#A").click(function(){
+	$.post('/comprobacion/'+user+'/'+id_pregunta+'/a',function(data){
+		clearInterval(temporizador);
+		document.close();
+		document.write(data);
+	});
+});
+
+$("#B").click(function(){
+	$.post('/comprobacion/'+user+'/'+id_pregunta+'/b',function(data){
+		clearInterval(temporizador);
+		document.close();
+		document.write(data);
+	});
+});
+
+$("#C").click(function(){
+	$.post('/comprobacion/'+user+'/'+id_pregunta+'/c',function(data){
+		clearInterval(temporizador);
+		document.close();
+		document.write(data);
+	});
+});
+
+$("#D").click(function(){
+	$.post('/comprobacion/'+user+'/'+id_pregunta+'/d',function(data){
+		clearInterval(temporizador);
+		document.close();
+		document.write(data);
+	});
+});
+
+</script>
+
+</body> 
+</html>

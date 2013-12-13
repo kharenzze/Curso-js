@@ -1,0 +1,12 @@
+{
+	"0": {"texto" : "¿Cual es la montaña mas alta de los Pirineos?<br>a)Aneto<br>b)Mont Blanc<br>c)Mulhacen<br>d)Teide", "sol" : "a"},
+	"1": {"texto" : "¿Cual es la capital de Andalucía?<br>a)Granada<br>b)Sevilla<br>c)Jaen<br>d)Malaga", "sol" : "b"},
+	"2": {"texto" : "¿Cual de estos personajes no fue emperador romano?<br>a)Julio Cesar<br>b)Trajano<br>c)Neron<br>d)Adriano", "sol" : "a"},
+	"3": {"texto" : "Conversion de 1001 a hexadecimal<br>a)A<br>b)7<br>c)B<br>d)9", "sol" : "d"},
+	"4": {"texto" : "¿De que color es el caballo blanco de Santiago?<br>a)Negro<br>b)Rosa<br>c)Blanco<br>d)Azul", "sol" : "c"},
+	"5": {"texto" : "¿A cuantos metros cuadrados equivale una cuerda?<br>a)4050<br>b)8010<br>c)3930<br>d)7960", "sol" : "c"},
+	"6": {"texto" : "A caballo regalado...<br>a)Muchas gracias<br>b)No le mires el diente<br>c)Rey puesto<br>d)Borrico prestado", "sol" : "b"},
+	"7": {"texto" : "¿De que color son las letras de la señal de trafico STOP?<br>a)Rojo<br>b)Azul<br>c)Verde<br>d)Blanco", "sol" : "d"},
+	"8": {"texto" : "¿Donde se encuentra el Palacio de las Cadenas?<br>a)Jaen<br>b)Baeza<br>c)Ubeda<br>d)Lupion", "sol" : "c"},
+	"length" : 9
+};

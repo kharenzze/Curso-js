@@ -1,0 +1,16 @@
+</table>
+
+     <hr>
+    <input type="button" value="Atras" id="atras">
+    <script type='text/javascript'>
+
+      $("#atras").click(function(){
+        $.get('/zona',function(data){
+          document.close();
+          document.write(data);
+        });
+      });   //llamamos a la funcion si hacemos click en el boton
+
+</script>
+  </body>
+</html>

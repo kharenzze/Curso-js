@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<title>Trivial</title>
+</head>
+
+<body>
+
+
+<h1>ERROR!</h1>
+
+<input type="button" value="Seguir" id="Seguir"/>
+<input type="button" value="Parar" id="Parar"/>
+
+<p> </p>
+
+<script type='text/javascript'>
+
+$("#Seguir").click(function(){
+	$.get('/jugar',function(data){
+		document.close();
+		document.write(data);
+	});
+});
+
+$("#Parar").click(function(){
+	$.get('/zona',function(data){
+		document.close();
+		document.write(data);
+	});
+});
+
+</script>
+
+</body> 
+</html>
