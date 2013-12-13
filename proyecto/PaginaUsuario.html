@@ -21,7 +21,7 @@
 $.get('/ranking/'+user,function(data){
 	var recibido;
 	eval('recibido='+data);
-	$('#puntos').html('Tienes '+parseInt(recibido.puntos+3)+' puntos');
+	$('#puntos').html('Tienes '+recibido.puntos+' puntos');
 });
 
 $('#bienvenida').html('Bienvenido '+user);
@@ -30,12 +30,14 @@ $("#Ranking").click(function(){
 	$.get('/ranking',function(data){
 		document.close();
 		document.write(data);
+	});
 });
 
 $("#Jugar").click(function(){
-	$.get('/jugar/'+user+pass,function(data){
+	$.get('/jugar/'+user+'/'+pass,function(data){
 		document.close();
 		document.write(data);
+	});
 });
 
 </script>

@@ -29,9 +29,9 @@ $("#Enviar").click(function(){
 			if (data=="1"){
 				$('#Resultado').html('Correcto. Redirigiendo');
 				setTimeout(function(){
-					document.close();//cortamos la espera de nuevos eventos
-					$.get('/zona',function(data){
-						document.write(data);
+					$.get('/zona',function(data1){
+						document.close();
+						document.write(data1);
 					});
 	
 				},1000);
@@ -41,9 +41,6 @@ $("#Enviar").click(function(){
 			}
 		});
 	}
-	
-	
-	
 });		//llamamos a la funcion si hacemos click en el boton
 
 $("#Usuario").click(function(){

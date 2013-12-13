@@ -3,28 +3,36 @@ var express=require('express');
 var app = express();
 var registro=new Array();
 
+registro['bbbb']={'password': 'a', 'puntos':Math.random(), 'pos':0};
+registro['a']={'password': 'a', 'puntos':Math.random(), 'pos':0};
+registro['bb']={'password': 'a', 'puntos':Math.random(), 'pos':0};
+registro['bbb']={'password': 'a', 'puntos':Math.random(), 'pos':0}
+
 function leer(pagina){
 	return fs.readFileSync(pagina,'utf-8');
 }
 
+
 function dar_posiciones(){
-	var copia_registro=registro;
-	for (i=0;i<copia_registro.length;i++){
-		contador=0;
-		for j in copia_registro{
-			if (contador=0){
-				mayor=j;
-			}
-			if(copia_registro[j].puntos>copia_registro[mayor].puntos){
-				mayor=j;
-			}
-			contador++;
-		}
-		registro[mayor].pos=i;
-		copia_registro.splice(mayor);
+	var v_nombres=new Array();	// creamos un vector con los nombres de usuario
+	var indice=0;
+	for(i in registro){			//y lo rellenamos
+		v_nombres[indice]=i;
+		indice++;
 	}
-	console.log(registro);
-	 
+	tamano=v_nombres.length;	//almacenamos el tamaño del vector
+	for (i=0;i<tamano;i++){		//vamos recorriendo el vector para ver quien tiene mas puntos, y le asignamos una posicion en el ranking
+		for (j in v_nombres){
+			if (j==0){
+				mayor=j;
+			}
+			if(registro[v_nombres[j]].puntos>registro[v_nombres[mayor]].puntos){
+				mayor=j;
+			}
+		}
+		registro[v_nombres[mayor]].pos=i;
+		v_nombres.splice(mayor,1);			//quitamos los usuarios que ya tienen una posicion asignada y repetimos el bucle
+	}
 }
 
 app.get('/', function (req, res) {   
@@ -49,6 +57,7 @@ app.get('/jugar/:id/:id2', function (req, res) {
 
 app.get('/ranking', function (req, res) {   
 	dar_posiciones();
+	console.log(registro);
 	res.send(leer('PaginaUsuario.html'));
 });
 
@@ -59,18 +68,19 @@ app.put('/log/:id/:id2', function (req, res) {
 		registro[usuario]={'password': pass, 'puntos':Math.random(), 'pos':0};
 		console.log('Nuevo usuario añadido\n'+req.params.id);
 		res.send('1');
-		console.log(registro);
 	}
 	else{
 		res.send('0');
-		console.log(registro);
 	}
 });
 
 app.post('/log/:id/:id2', function (req, res) { 
 	usuario=req.params.id;
 	pass=req.params.id2;
-	if (registro[usuario].password==pass){	
+	if (registro[usuario]==undefined){
+		res.send('0');
+	}
+	else if (registro[usuario].password==pass){	
 		console.log('Nuevo acceso');
 		res.send('1');
 	}
@@ -81,7 +91,6 @@ app.post('/log/:id/:id2', function (req, res) {
 
 app.get('/ranking/:id', function (req, res) {
 	res.send('{"puntos" : '+registro[req.params.id].puntos+' }\n');
-	console.log(registro[req.params.id].puntos);
 });
 
 var port=process.env.PORT || 5000;
