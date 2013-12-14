@@ -10,7 +10,8 @@
 <p>Beta</p>
 <input type="text" value="Usuario" id="Usuario" required />
 <input type="password" value="Pass" id="Pass" required />
-<input type="button" value="Enviar" id="Enviar">
+<input type="button" value="Enviar" id="Enviar"><br>
+<input type="button" value="Atras" id="Atras">
 <h2 id='Resultado'></h2>
 
 <p> </p>
@@ -48,7 +49,14 @@ $("#Enviar").click(function(){
 	
 	
 	
-});		//llamamos a la funcion si hacemos click en el boton
+});
+
+$("#Atras").click(function(){
+	$.get('/',function(data){
+		document.close();
+		document.write(data);
+	});
+});
 
 $("#Usuario").click(function(){
 	$("#Usuario").val('');

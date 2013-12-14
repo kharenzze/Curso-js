@@ -13,6 +13,7 @@
 <p id='puntos' ></p>
 <input type="button" value="Jugar" id="Jugar"/>
 <input type="button" value="Ver Ranking" id="Ranking"/>
+<input type="button" value="Atras" id="Atras">
 
 <p> </p>
 
@@ -35,6 +36,15 @@ $("#Ranking").click(function(){
 
 $("#Jugar").click(function(){
 	$.get('/jugar/',function(data){
+		document.close();
+		document.write(data);
+	});
+});
+
+$("#Atras").click(function(){
+	$.get('/',function(data){
+		user=undefined;//ademas de volcer atras, borramos los datos de sesion del usuario. 
+		pass=undefined;
 		document.close();
 		document.write(data);
 	});

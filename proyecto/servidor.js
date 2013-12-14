@@ -48,13 +48,6 @@ var registro=new Array();
 var tabla_html;
 eval("var trivial="+leer('trivial.json'));
 
-
-registro['bbbb']={'password': 'a', 'puntos':Math.random(), 'pos':0};
-registro['a']={'password': 'a', 'puntos':Math.random(), 'pos':0};
-registro['bb']={'password': 'a', 'puntos':Math.random(), 'pos':0};
-registro['bbb']={'password': 'a', 'puntos':Math.random(), 'pos':0}
-
-
 //	GESTION HTTP
 
 
@@ -129,7 +122,6 @@ app.get('/jugar', function (req, res) {
 
 app.get('/pregunta', function (req, res) {  //peticion de una pregunta para jugar 
 	indice=Math.floor(Math.random()*(trivial.length-1));
-	console.log(indice)
 	res.send("{texto:"+"'"+trivial[indice].texto+"'"+",id_pregunta:"+indice+"}");
 });
 
